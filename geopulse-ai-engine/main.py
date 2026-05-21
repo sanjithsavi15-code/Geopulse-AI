@@ -5,7 +5,7 @@ import networkx as nx
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-# Import your custom modules
+# Import custom modules
 from core.state_manager import SimulationState
 from agents.scout import run_scout
 from agents.adversary import run_adversary
@@ -15,7 +15,6 @@ from agents.orchestrator import run_orchestrator
 # Initialize the FastAPI app
 app = FastAPI()
 
-# --- ADD THIS ENTIRE BLOCK ---
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Allows all origins (good for local development)
@@ -182,7 +181,6 @@ def get_engine_state():
     # frontend calls this
     sim.time_elapsed += 1
 
-    # Return the exact JSON schema requested by the expert prompt
     return sim.get_routing_payload()
 
 
