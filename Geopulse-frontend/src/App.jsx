@@ -6,7 +6,6 @@ import TelemetryDash from "./components/TelemetryDash";
 import AgentSidebar from "./components/AgentSidebar";
 
 // ─── Constants ─────────────────────────────────────────────────────────────────
-// In dev, use Vite proxy (same origin). In prod, hit backend directly.
 const API_BASE = import.meta.env.DEV ? "" : "http://localhost:8000";
 
 function apiErrorMessage(err, fallback = "Request failed.") {
@@ -71,13 +70,13 @@ function parseRouteToLatLng(raw) {
   return mapped.length >= 2 ? mapped : null;
 }
 
-// ─── Map tile URL (dark Uber-style) ───────────────────────────────────────────
+// ─── Map tile URL ───────────────────────────────────────────
 const MAP_TILE_URL =
   "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
 const MAP_TILE_ATTRIBUTION =
   '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>';
 
-// ─── Fix Leaflet default icon paths (common CRA/Vite issue) ───────────────────
+// ─── Fix Leaflet default icon paths  ───────────────────
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png",
@@ -103,7 +102,7 @@ function createMarkerIcon(color, shape = "circle") {
   });
 }
 
-// ─── Location Selector (Ride-hailing style) ────────────────────────────────────
+// ─── Location Selector  ────────────────────────────────────
 function LocationInput({ label, icon, value, onChange, options }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
