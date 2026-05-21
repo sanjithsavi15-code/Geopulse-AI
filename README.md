@@ -1,75 +1,53 @@
-
-```markdown
 # GeoPulse AI 🌐✈️
-### Intelligent Multi-Agent Autonomous Logistics Routing Dashboard
 
-GeoPulse AI is an enterprise-grade simulation platform designed to monitor and dynamically reroute high-stakes payloads (e.g., critical pharmaceuticals) around real-time network anomalies—such as flash floods or severe gridlocks—across Bengaluru, India. 
+<p align="center">
+  <img src="https://img.shields.io/badge/Algorithm-Dijkstra's%20SSSP-neon?style=for-the-badge&logo=mathworks&logoColor=white&color=059669" alt="Dijkstra">
+  <img src="https://img.shields.io/badge/Architecture-Multi--Agent%20Simulation-blue?style=for-the-badge&logo=diagrams.net&logoColor=white&color=2563EB" alt="Multi-Agent">
+  <img src="https://img.shields.io/badge/Backend-FastAPI%20%7C%20NetworkX-darkgreen?style=for-the-badge&logo=fastapi&logoColor=white&color=10B981" alt="Backend">
+  <img src="https://img.shields.io/badge/Frontend-React%20%7C%20Tailwind-darkblue?style=for-the-badge&logo=react&logoColor=white&color=3B82F6" alt="Frontend">
+</p>
 
-The system couples advanced graph theory with an autonomous multi-agent framework to simulate hostile disruptions, mutate network conditions, and calculate deterministic detours instantly.
+### 🎯 Overview
+**GeoPulse AI** is an intelligent, high-contrast dark-mode logistics dashboard engineered to monitor, analyze, and dynamically reroute high-stakes payloads (e.g., critical pharmaceuticals) around real-time city-scale disruptions. 
 
----
-
-## 🛠️ The Tech Stack
-
-- **Backend:** Python 3.10+, FastAPI (High-speed REST API), NetworkX (Graph Mathematics), Uvicorn.
-- **Frontend:** React.js (Vite), Tailwind CSS (Premium UI), React-Leaflet & OpenStreetMap (Geospatial Canvas).
-- **Data Pipeline:** Axios configured for rigid JSON data serialization.
-
----
-
-## 📐 Core Algorithm & Agent Architecture
-
-### 1. Route Optimization (Dijkstra's Algorithm)
-The road network is modeled as a **Directed Graph ($G = (V, E)$)** in NetworkX. Instead of static distance, road edges are weighted using a **temporal latency metric** (calculated travel time). The engine handles baseline routing requests using an optimized implementation of **Dijkstra’s Algorithm** ($O(|E| + |V| \log |V|)$).
-
-### 2. The Multi-Agent Chaos Loop
-When a user clicks **"Inject Network Anomaly"**, a decoupled multi-agent loop triggers across the full stack:
-* 💥 **Adversarial Agent:** Simulates an localized disruption (e.g., a flash flood at MG Road) and broadcasts an alert payload.
-* 🛰️ **Scout Agent:** Audits active delivery tracks, flags upcoming intersections with danger zones, and alerts the core network.
-* 🧠 **Orchestrator Agent:** Dynamically mutates the live NetworkX graph topology, applying a massive **$+500$ minute temporal penalty** to the compromised edges.
-* 🔄 **Dijkstra Recalculation:** The engine re-runs Dijkstra's algorithm on the mutated graph. Because the original path is no longer optimal, the algorithm naturally paths around the barrier, capturing the **next mathematical optimum detour**.
+By coupling advanced graph theory with an autonomous multi-agent simulation framework, the platform detects localized threats (like flash floods or severe traffic gridlocks) across Bengaluru, India, programmatically mutates topological edge weights, and computes deterministic detours instantly.
 
 ---
 
-## ⚙️ Quick Start (Local Execution)
+## 🚀 Key Features
 
-To run the application, spin up the backend and frontend simultaneously in separate terminal windows:
-
-### Part 1: Python Backend
-```bash
-cd geopulse-ai-engine
-# Activate your venv (Windows: .\\venv\\Scripts\\Activate.ps1 | Mac/Linux: source venv/bin/activate)
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
-
-```
-
-### Part 2: React Frontend
-
-```bash
-cd geopulse-frontend
-npm install
-npm run dev
-
-```
-
-*Open the provided Vite link (e.g., `http://localhost:5173`) in your browser.*
+* **Decoupled Architecture:** Asynchronous full-stack pipeline coordinating a high-performance Python mathematical engine with a responsive React viewport client.
+* **Dynamic Graph Mutation:** Real-time edge weight inflation to organically redirect routing flows around obstructions rather than simply breaking paths.
+* **Autonomous Telemetry Feed:** Real-time multi-agent message routing displaying the independent reasoning steps of the system's automated personas (**Scout**, **Adversarial**, and **Orchestrator**).
+* **Street-Snapped Precision:** Dynamic integration with the open-source **OSRM API** to map raw vector node coordinates into high-resolution, street-level tracking polylines.
 
 ---
 
-## 🔮 Scalability Roadmap (Production Future)
+## 🛠️ Tech Stack & Ecosystem
 
-1. **Event-Driven Microservices:** Decouple autonomous agents into dedicated **Docker** containers orchestrated by **Kubernetes**, utilizing **Apache Kafka** or **RabbitMQ** for high-throughput, asynchronous event streaming.
-2. **Production-Grade Encryption:** Secure data in transit via **TLS 1.3** proxy termination (Nginx/Cloudflare) and data at rest via **AES-256 transparent database encryption** paired with application-level **Envelope Encryption** for sensitive telemetry.
-3. **Graph Scaling Layer:** Migrate NetworkX out of volatile server memory into a dedicated graph database instance (**Neo4j** or **AWS Neptune**) and introduce **Contraction Hierarchies** to keep route calculation speeds under micro-milliseconds at scale.
+| Layer | Technologies | Primary Function |
+| :--- | :--- | :--- |
+| **Backend Engine** | `Python 3.10+` `FastAPI` `Uvicorn` | Exposes REST endpoints, tracks state, and runs the agent loop. |
+| **Graph Modeling** | `NetworkX` | Houses directed topological structures and handles shortest-path loops. |
+| **Frontend Client**| `React.js (Vite)` `Tailwind CSS` | Manages component state and powers the premium dark-mode interface. |
+| **Geospatial Mapping**| `React-Leaflet` `OpenStreetMap` | Renders map tile layers, location markers, and route arrays. |
 
-```
+---
 
-***
+## 📐 Core Algorithm & Agent Pipeline
 
-### Why this works better for judges:
-- **Scannable:** Using bold key terms allows a judge to glance at the document and see "FastAPI", "NetworkX", "Dijkstra's Algorithm", and "Kafka" instantly.
-- **Clear Flow:** It explains exactly what happens when the button is clicked step-by-step (Adversarial $\rightarrow$ Scout $\rightarrow$ Orchestrator $\rightarrow$ Recalculation). 
-- **The "Future Scope" Section:** It shows that you understand how to write enterprise software, not just clean hackathon scripts!
+### 1. Route Optimization Mechanics
+The urban roadmap grid is modeled as a **Directed Graph ($G = (V, E)$)** within NetworkX. Rather than calculating geometric distance, graph edges are weighted dynamically using a **temporal latency cost metric** (estimated driving time). Baseline paths are resolved using a Min-Heap optimized implementation of **Dijkstra’s Algorithm** with a strict time complexity of:
 
-```
+$$O(|E| + |V| \log |V|)$$
+
+### 2. The Chaos Rerouting Lifecycle
+When a user clicks **"Inject Network Anomaly"**, the system runs an automated full-stack simulation loop:
+```text
+[Adversarial Agent] ──> Simulates Hazard (e.g., Flash Flood at MG Road)
+       │
+[Scout Agent]       ──> Detects upcoming route path intersections
+       │
+[Orchestrator]      ──> Mutates Graph Edge Weights (+500 Min temporal penalty)
+       │
+[Dijkstra Engine]   ──> Recalculates paths on mutated topology to find new optimum
