@@ -51,3 +51,45 @@ When a user clicks **"Inject Network Anomaly"**, the system runs an automated fu
 [Orchestrator]      ──> Mutates Graph Edge Weights (+500 Min temporal penalty)
        │
 [Dijkstra Engine]   ──> Recalculates paths on mutated topology to find new optimum
+The server returns a unified response payload containing the new active_route, the original abandoned_route (painted on the UI as a red dashed vector), and the collection of raw agent reasoning logs.
+📂 Repository Layout
+Plaintext
+geopulse-AI/               <-- Monorepo Root Workspace
+│
+├── geopulse-ai-engine/    <-- Backend Server Directory
+│   ├── core/              # Graph engine and singleton simulation states
+│   ├── agents/            # Orchestrator, Adversary, and Scout behaviors
+│   ├── main.py            # FastAPI implementation & CORS filters
+│   └── requirements.txt   # Python dependencies
+│
+└── geopulse-frontend/     <-- Frontend UI Directory
+    ├── src/               # React components, Map visualizer, and Sidebar
+    ├── package.json       # Node package manager configurations
+    └── tailwind.config.js # Tailwind surfacing and design tokens
+⚙️ Execution Guide
+To test the application locally, initialize both the backend and frontend systems simultaneously using separate terminal sessions:
+
+🐍 Step 1: Spin Up the Backend Server
+Bash
+cd geopulse-ai-engine
+# Activate your virtual environment
+# Windows: .\venv\Scripts\Activate.ps1  |  Mac/Linux: source venv/bin/activate
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+Backend endpoints will run at http://localhost:8000
+
+⚛️ Step 2: Spin Up the Frontend Viewport
+Bash
+cd geopulse-frontend
+npm install
+npm run dev
+Open the provided development URL (typically http://localhost:5173) inside your browser.
+
+🔮 Future Scalability Roadmap
+Event-Driven Architecture: Move away from synchronous HTTP loops by decoupling autonomous agent workflows into isolated microservices running inside Docker containers managed by Kubernetes, utilizing Apache Kafka or RabbitMQ for event message handling.
+
+Hardened Security Configurations: Secure live logistics tracking via TLS 1.3 transport-layer proxy termination (e.g., Nginx) and encrypt database files at rest with AES-256, using Envelope Encryption for sensitive fields.
+
+Enterprise Graph Scaling: Migrate from volatile memory-based NetworkX states to production graph databases (Neo4j or AWS Neptune) and implement Contraction Hierarchies to maintain sub-millisecond calculation scales across national topologies.
+
+Designed and engineered in Bengaluru, Karnataka. 💻🌐
